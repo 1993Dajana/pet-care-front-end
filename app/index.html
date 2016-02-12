@@ -10,16 +10,18 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
+
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    
+    <!-- manuelno dodadeni komponenti od bower_components -->
+     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- manuelno dodadeni komponenti od bower_components -->
+
   </head>
   <body ng-app="petCareFrontEndApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
     <!-- Add your site or application content here -->
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
@@ -88,6 +90,7 @@
 
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/satellizer/satellizer.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS07zRJ8pnriBiouD7EnkL5HQSaB3PGgg&libraries=places"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -105,11 +108,13 @@
     <script src="scripts/services/authentication.js"></script>
     <script src="scripts/services/registration.js"></script>
     <script src="scripts/services/crud.js"></script>
+    <script src="scripts/services/posts.js"></script>
     
     <!-- services -->
 
     <!-- directives -->
-
+    <script src="scripts/directives/fileUpload.js"></script>
+    <script src="scripts/directives/googlePlace.js"></script>
     <!-- directives -->
 
     <!-- endbuild -->

@@ -17,7 +17,7 @@
 
             var credentials = {
                 email: vm.email,
-                password: vm.password
+                password: vm.password,
             }
             
             // Use Satellizer's $auth service to login

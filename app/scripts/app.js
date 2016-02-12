@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-var petcareApp = angular
-  .module('petCareFrontEndApp', 
+var petcareApp = angular.module('petCareFrontEndApp', 
   [ 'ngAnimate',
     'ngCookies',
     'ngResource',

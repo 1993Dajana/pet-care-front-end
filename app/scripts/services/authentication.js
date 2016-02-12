@@ -1,3 +1,4 @@
+'use strict';
 petcareApp
 	.service("authentication", [ 'crud' , '$q', '$rootScope', 'BASE_URL', '$auth',  '$state',
                                    
@@ -13,7 +14,6 @@ petcareApp
              	function success(response){
              	console.log('succesfully logged in');
              	console.dir(response);
-             	$state.go('users', {}); // od auth vo users state
              	crud.getAuthUser(
              			function success(response){
              				// ako e se OK vrakjame avtenticiran user na kontrolerot i go zachuvuvame vo $rootScope
@@ -23,7 +23,7 @@ petcareApp
 							localStorage.setItem('user', user);	
 	                		$rootScope.authenticated = true;
 	                		$rootScope.currentUser = response.user;
-	               			$state.go('users');
+                            $state.go('users');
 	               			deferred.resolve(response);
              			},
              			function failure(error){

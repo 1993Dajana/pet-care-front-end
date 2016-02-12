@@ -2,6 +2,9 @@
 petcareApp
 .config(function ($routeProvider, $httpProvider, $compileProvider,$stateProvider, $urlRouterProvider,
 				  $authProvider, $injector, $provide) {
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|skype):/);
+
 
              function redirectWhenLoggedOut($q, $injector) {
 
@@ -22,17 +25,19 @@ petcareApp
                         // Loop through each rejection reason and redirect to the login
                         // state if one is encountered
                         angular.forEach(rejectionReasons, function(value, key) {
+                            if(rejection.data != null){
+                                if(rejection.data.error === value) {    // greshka rejection.data.error ?
 
-                            if(rejection.data.error === value) {
+                                    // If we get a rejection corresponding to one of the reasons
+                                    // in our array, we know we need to authenticate the user so 
+                                    // we can remove the current user from local storage
+                                    localStorage.removeItem('user');
 
-                                // If we get a rejection corresponding to one of the reasons
-                                // in our array, we know we need to authenticate the user so 
-                                // we can remove the current user from local storage
-                                localStorage.removeItem('user');
-
-                                // Send the user to the auth state so they can login
-                                $state.go('auth');
+                                    // Send the user to the auth state so they can login
+                                    $state.go('auth');
+                                }    
                             }
+                            
                         });
 
                         return $q.reject(rejection);
@@ -64,7 +69,8 @@ petcareApp
                 })
                 .state('auth.register', {
                     url: '^/register',
-                    templateUrl: '../views/guest/register.html'
+                    templateUrl: '../views/guest/register.html',
+                    controller: 'RegisterController'
                 })
                 .state('users', {
                     url: '/users',
@@ -84,7 +90,7 @@ petcareApp
 .run(['$rootScope', '$http', '$state', function($rootScope, $http, $state){
 
   console.log('run');
-    
+  
 
             $rootScope.$on('$stateChangeStart', function(event, toState) {
 
@@ -94,10 +100,12 @@ petcareApp
                     // logirana sum
                     $rootScope.authenticated = true;
                     $rootScope.currentUser = user;
-
+                    // console.log('current user is');
+                    // console.dir($rootScope.currentUser);  
 
                     if((toState.name === "auth") || (toState.name === "auth.login") || (toState.name === "auth.register")){
                        // ako sakame da ideme na login strana dodeka sme logirani ne ni e dozvoleno.
+                       console.log(toState.name + ' avtenticirani ama sakam na login');
                         event.preventDefault();
                         $state.go('users');
                     }       
@@ -107,9 +115,9 @@ petcareApp
                     $rootScope.authenticated = false;
                     $rootScope.currentUser = null;
 
-                    if((toState.name === "users.home")
-                    	|| (toState.name === "users") ) {
+                    if((toState.name === "users.home") || (toState.name === "users")) {
                        // ako sakame da ideme na login strana dodeka sme logirani ne ni e dozvoleno.
+                       console.log(toState.name + ' guest ama sakam home');
                         event.preventDefault();
                         $state.go('auth');
                     }   

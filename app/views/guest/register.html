@@ -1,4 +1,4 @@
-<form method="POST" ng-model="user" id="register-form" role="form" ng-submit="register()" novalidate>
+<form method="POST" ng-model="user" id="register-form" role="form" ng-submit="register()" novalidate enctype="multipart/form-data">
    <table>
       <tr>
          <td><img src="images/users/profile_picture.png" width="150" height="150"id="previewImg" class="img-responsive"> </td>
@@ -6,9 +6,9 @@
    </table>
    <br><br>
    <div class="form-group">
-      <label for="file-upload" class="custom-file-upload">Choose Picture </label> 
-      <input id="file-upload" type="file"  name="user.profilePicture" file-model="user.profilePicture" accept="image/*" id="inputImg"
-         onchange="angular.element(this).scope().fileNameChanged(this)" />
+      <label for="form-data" class="custom-file-upload">Choose Picture </label> 
+      <input id="form-data" type="file"  name="user.profile_picture" ng-model="user.profile_picture" file-model="user.profile_picture" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(this)"/>
+
    </div>
    <div class="form-group">
       <input type="email" name="username" ng-model="user.email" id="username" tabindex="1" class="form-control"
@@ -26,6 +26,9 @@
    </div>
    <div class="form-group">
       <input type="text" ng-model="user.skype_id" id="skypeId" tabindex="2" class="form-control" placeholder="Skype ID [optional]">
+   </div>
+     <div class="form-group">
+      <input type="text" ng-model="user.contact_number" id="contact_number" tabindex="2" class="form-control" placeholder="Contact number">
    </div>
    <div class="form-group">
       <div class="row">

@@ -1,5 +1,6 @@
+'use strict';
 petcareApp
-  .controller('AuthController', ['$scope','authentication', '$location', '$rootScope',
+  .controller('AuthController', ['$scope','authentication', '$location', '$rootScope', 
                                          function($scope, authentication, $location, $rootScope) {
 	
 	
