@@ -1,40 +1,87 @@
-<form method="POST" ng-model="user" id="register-form" role="form" ng-submit="register()" novalidate enctype="multipart/form-data">
-   <table>
-      <tr>
-         <td><img src="images/users/profile_picture.png" width="150" height="150"id="previewImg" class="img-responsive"> </td>
-      </tr>
-   </table>
-   <br><br>
-   <div class="form-group">
-      <label for="form-data" class="custom-file-upload">Choose Picture </label> 
-      <input id="form-data" type="file"  name="user.profile_picture" ng-model="user.profile_picture" file-model="user.profile_picture" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(this)"/>
+ <div class="container">
+ <div id="wrapper" style="width:100%">
+    <div class=" form animate" style="width:100%">
+        <section class="login_content">
+            <form class="form-horizontal" method="POST" ng-model="user" id="register-form" role="form" ng-submit="register()" novalidate enctype="multipart/form-data" >
+                <h1>Create Account</h1>
+            <div class="item form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                     <img src="images/users/profile_picture.png" width="150" height="150" id="previewImg" class="img-responsive">
+                </div>
+            </div>
+            <div class="item form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                     <!-- <label for="form-data" class="custom-file-upload">Choose Picture </label>  -->
+                     <input id="form-data" type="file"  name="user.profile_picture" ng-model="user.profile_picture" file-model="user.profile_picture" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(this)"/>
+                </div>
+            </div>
+            <div class="item form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input id="first_name" class="form-control col-md-12 col-xs-12"  ng-model="user.first_name"  required="required" type="text" placeholder="First name *">
+                 </div>
+            </div>
+            <div class="item form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input id="last_name" class="form-control col-md-12 col-xs-12"  ng-model="user.last_name"  required="required" type="text" placeholder="Last name *">
+                </div>
+            </div>
+        <div class="item form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <input type="email" id="email" name="email" ng-model="user.email" required="required" class="form-control col-md-12 col-xs-12" placeholde="Username [example@email.com] * ">
+            </div>
+        </div>
+        <div class="item form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-12 col-xs-12" required="required" ng-model="user.password" placeholder="password *">
+            </div>
+        </div>
+        <div class="item form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <input  placeholder="Contact number" type="text" id="number" name="number" ng-model="user.contact_number" class="form-control col-md-12 col-xs-12" phone-input>
+            </div>
+        </div>
+    
+        <div class="item form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <input id="skype_id" type="text" placeholder="Skype id" name="skype_id" ng-model="user.skype_id" class="optional form-control col-md-12 col-xs-12">
+            </div>
+        </div>
 
-   </div>
-   <div class="form-group">
-      <input type="email" name="username" ng-model="user.email" id="username" tabindex="1" class="form-control"
-         placeholder="Username@example.com" required/>
-   </div>
-   <div class="form-group">
-      <input type="password" name="password" ng-minlength="4" ng-maxlength="10" ng-model="user.password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
-   </div>
-   <div class="form-group">
-      <input type="text" name="firstName" ng-model="user.first_name" id="first_name" tabindex="2" class="form-control" placeholder="First Name" required>
-   </div>
-   <div class="form-group">
-      <input type="text" name="lastName" ng-model="user.last_name" id="last_name" tabindex="2" class="form-control"
-         placeholder="Last Name" required>
-   </div>
-   <div class="form-group">
-      <input type="text" ng-model="user.skype_id" id="skypeId" tabindex="2" class="form-control" placeholder="Skype ID [optional]">
-   </div>
-     <div class="form-group">
-      <input type="text" ng-model="user.contact_number" id="contact_number" tabindex="2" class="form-control" placeholder="Contact number">
-   </div>
-   <div class="form-group">
-      <div class="row">
-         <div class="col-sm-6 col-sm-offset-3">
-            <input type="submit" name="register-submit"  id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register" />
-         </div>
-      </div>
-   </div>
-</form>
+        
+
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-12 col-md-offset-3">
+                <button type="submit" class="btn btn-primary">Cancel</button>
+                <button id="send" type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+                        <div class="separator">
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Petcare | we care </h1>
+
+                                <p>©2016 All Rights Reserved. Skopje, Macedonia</p>
+                            </div>
+                        </div>
+    </form>
+    </section>
+    </div>
+    </div>
+    </div>
+<!-- page content -->
+
+<script>
+
+// validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+$('form')
+    .on('blur', 'input[required],  select.required', validator.checkField)
+    .on('change', 'select.required', validator.checkField)
+    .on('keypress', 'input[required][pattern]', validator.keypress);
+
+</script>
+
+
+

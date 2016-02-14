@@ -1,164 +1,457 @@
-<div ng-init="getPosts()">
-   <h2>Home</h2>
-<!-- ***************************************** [POST NEW POST] *****************************************************-->
-   <div class="row headerforcomments" style="margin-left: 100px">
-      <form ng-model="post"  enctype="multipart/form-data" role="form" ng-submit="post()">
-         <!-- podatoci za korisnikot -->
-         <div id="footer_post" class="row">
-            <div class="col-lg-2">
-               <img ng-src="images/users/{{user.profileImage}}" class="img-responsive" width="60" height="60" alt="" style="">
+
+  <div class="hold-transition skin-blue sidebar-mini " >
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a  class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>P</b>C</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Pet Care</b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <!-- Menu toggle button -->
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 messages</li>
+                  <li>
+                    <!-- inner menu: contains the messages -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a >
+                          <div class="pull-left">
+                            <!-- User Image -->
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                          </div>
+                          <!-- Message title and timestamp -->
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <!-- The message -->
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li><!-- end message -->
+                    </ul><!-- /.menu -->
+                  </li>
+                  <li class="footer"><a >See All Messages</a></li>
+                </ul>
+              </li><!-- /.messages-menu -->
+
+              <!-- Notifications Menu -->
+              <li class="dropdown notifications-menu">
+                <!-- Menu toggle button -->
+                <a  class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                    <!-- Inner Menu: contains the notifications -->
+                    <ul class="menu">
+                      <li><!-- start notification -->
+                        <a >
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li><!-- end notification -->
+                    </ul>
+                  </li>
+                  <li class="footer"><a >View all</a></li>
+                </ul>
+              </li>
+              <!-- Tasks Menu -->
+              <li class="dropdown tasks-menu">
+                <!-- Menu Toggle Button -->
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+                    <!-- Inner menu: contains the tasks -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a >
+                          <!-- Task title and progress text -->
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <!-- The progress bar -->
+                          <div class="progress xs">
+                            <!-- Change the css width attribute to simulate progress -->
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a >View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a >Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a>Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a >Friends</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a  class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+            <!--  <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>-->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
-            <div class="col-lg-10" style="maring-left: 0px">
-               <textarea id="text_area_in_post" ng-model="post.message" class="form-control" rows="3" style="font-size: 15px" maxlength="250" placeholder="Post here... "></textarea>
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
+              <!-- Status -->
+              <a ><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-         </div>
-         <!-- podatoci za korisnikot -->
-         <div class="row" style="padding-left: 20px; padding-bottom: 7px; padding-right: 20px">
-            <!-- Googple PLaces Directive -->
-            <input ng-model="post.address" class="form-control" ng-show="toAddLocation" googleplace />
-            <!-- <input class="form-control" type='text' ng-model="post.contact_phone" tabindex="1" placeholder="Enter you phone contact ..." ng-show="toAddContactPhone" phone-input /> -->
-            <hr style="margin-bottom: 20px; margin-top: 20px;">
-            <img id="previewImg" class="img-responsive" style="margin-bottom: 10px" ng-show="showImage">
-            <ul style="margin-left: 0px" class="list-inline">
-               <li class="fa fa-map-marker" style="color: #FFCC00" ng-show="showLocation">
-                     <span style="color: #A3C2C2">{{post.address}}</span>
-               </li>
-            <li class="fa fa-phone" style="color: #99CCFF" ng-show="showContact"><span style="color: #A3C2C2">
-            {{currentUser.contact_number}} </span>
-         </li>
-         <li class="fa fa-paw" style="color: #00FF99" ng-show="showType"><span style="color: #A3C2C2" ng-model="showType"> {{showType}} </span>
-      </li>
-   </ul>
-   <hr ng-if="showHR" style="margin-bottom: 7px;">
-   <div class="col-lg-10">
-      <ul class="list-inline" style="margin-bottom: 0px;">
-         <li style="cursor: pointer">
-            <div class="form-group" style="color: #B0F2E5; font-size: 18px;">
-               <label for="file-upload" class="glyphicon glyphicon-camera" />
-                  <input id="file-upload" type="file" name="file" style="color: #B0F2E5;" file-model="post.post_picture" accept="image/*" />
-               </div>
+          </div>
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">HEADER</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li class="active"><a ><i class="fa fa-link"></i> <span>Link</span></a></li>
+            <li><a ><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="treeview">
+              <a ><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a >Link in level 2</a></li>
+                <li><a>Link in level 2</a></li>
+              </ul>
             </li>
-            <li style="cursor: pointer"><a id="buttons_post"><span
-            class="fa fa-map-marker" ng-click="addLocation()"></span></a>
-         </li>
-         <!-- <li style="cursor: pointer"><a id="buttons_post"><span
-         class="fa fa-phone" ng-click="addPhone()"></span></a>
-      </li> -->
-<!-- ova e dropdown-ot i ne raboti :( - ne znam porke  -->
-      <div class="btn-group" dropdown keyboard-nav>
-         <p style="cursor: pointer">
-            <a id="simple-btn-keyboard-nav" class="fa fa-paw" dropdown-toggle style="color: #B0F2E5; font-size: 20px; background: transparent; border: none">
-               <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
-               <li style="cursor: pointer" role="menuitem" ng-click="adopt()"><a ng-model="comment.type" value="adopt">I am giving a pet (adopting)</a>
-            </li>
-            <li style="cursor: pointer" role="menuitem" ng-click="sell()"><a ng-model="comment.type" value="sell/giv">I am selling a pet</a>
-         </li>
-         <li style="cursor: pointer" role="menuitem" ng-click="lost()"><a ng-model="comment.type" value="found/lost">I have lost my pet</a>
-      </li>
-      <li style="cursor: pointer" role="menuitem" ng-click="found()"><a ng-model="comment.type" value="adopt">I have found someone's pet</a>
-   </li>
-   <li style="cursor: pointer" role="menuitem" ng-click="injure()"><a ng-model="comment.type" value="sell/giv">My pet is injured</a>
-</li>
-</ul>
-</p>
-</div>
-<!-- ova e dropdown-ot i ne raboti :( - ne znam porke  -->
-</ul>
-</div>
-<div class="col-lg-2" style="    padding-right: 0px;">
-<input type="submit" class="button button-action button-circle  button-longshadow  pull-right" value="submit"> 
-<i class="fa fa-paw"></i>
-</button>
-</div>
-</div>
-</form>
-</div>
-<!-- ***************************************** [POST NEW POST] *****************************************************-->
-<!-- ***************************************** [OLD POSTS] *********************************************************-->
-<div class="row headerforcomments" ng-repeat="post in posts" style="margin-left: 100px; padding-top: 0px; padding-left: 14px; padding-right: 14px;">
-<div class="row" ng-if="post">
-<div class="row " ng-class="post.type"></div>
-<!-- boja spored tip -->
-<div id="footer_post" class="row" style="margin-left: 1px">
-<ul class="list-inline" style="margin-left: 13px; display: flex;">
-<li>
-<img ng-src="images/users/{{post.pet.profileImage}}"
-class="img-responsive" width="80" height="80"></li>
-<li style="padding-bottom: 10px;" align="top">
-<h4 id="style_name" style="font-size: 20px; margin-top: 0px;">
-{{currentUser.first_name}}
-{{currentUser.last_name}}
-</h4>
-<ul class="list-inline" style="margin-bottom: 0px;">
-<li> <i class="fa fa-clock-o" style="color: #FF0000"></i>
-<span
-style="color: #A3C2C2">{{convertTimestampToDate(post.created_at)}}</span>
-<!-- convertTimestampToDate --> </li>
-<li> <i class="fa fa-clock-o" style="color: #FF0000"></i>
-<span
-style="color: #A3C2C2">{{convertTimestampToTime(post.created_at)}}</span>
-<!-- convertTimestampToDate --> </li>
-<!-- <li>
-   <i class="fa fa-phone" style="color: #99CCFF"
-   ng-if="post.contact_phone"></i>
-   <span
-   style="color: #A3C2C2">{{post.contact_phone}}</span>
-</li>
--->
-</ul>
-<i class="fa fa-map-marker" style="color: #FFCC00;"
-id="stile_location" ng-if="post.address"></i>
-<span
-style="color: #A3C2C2">{{post.address}}</span>
-</li>
-</ul>
-<hr
-style="margin-left: 20px; margin-right: 34px; margin-top: 0px; margin-bottom: 0px;">
-<div id="style_img_and_comment" class="row "
-style="margin-top: 8px;">
-<div class="col-lg-12" align="justify"
-   style="padding-right: 0px;">{{post.message}}<button ng-click="showPost(1)">show</button></div>
-<br>
-<br>
-<div class="col-ld-12" ng-if="post.image_comment"
-align="center" style="margin-top: 10px; margin-left: 14px;">
-<img ng-src="images/posts/{{post.image_comment}}"
-class="img-responsive " alt="" style=""></div>
-</div>
-<hr
-style="margin-left: 20px; margin-right: 34px; margin-top: 0px; margin-bottom: 0px;">
-<div class="row">
-<div class="col-lg-12 "
-style="padding-left: 20px; padding-right: 28px;">
-<br>
-<i id="post-{{$index}}"
-ng-click="like(post, $index)"
-style="background: transparent; border: none; color: #e74c3c; font-size: 32px; padding: 0px; margin-left: 20px; cursor: pointer"
-class="fa fa-heart-o"></i>
-<span>{{comments[comments.length - 1 - $index].likes}}</span>
-<span>
-<button
-class="pull-right button button-highlight button-circle  button-longshadow"
-ng-click="openReplyModal(post.id)"
-style="margin-right: 20px; margin-left: 20px; margin-bottom: 10px;"
->
-<i class="fa fa-comment"></i>
-</button>
-<a
-   id="skype-{{$index}}"
-   href="skype:hardcode?chat&topic=this+works"
-   ng-click="changeHrefForCall($index, post.pet.skypeId,1)"
-   ng-if="post.pet.skypeId"
-   class="pull-right  button button-primary button-circle button-longshadow">
-   <i class="fa fa-skype"></i>
-</a>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- ***************************************** [OLD POSTS] *********************************************************-->
-</div>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+
+
+     <!-- ************************************* CONTENT STARTS HERE :D ************************************* -->
+      <div class="content-wrapper" ui-view>
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content" ng-controller="HomeController" ng-init="getPosts()">
+
+          <div class="row">
+            <div class="col-sm-12 col-md-9">
+
+<!-- ***************************************** [POST NEW POST] ****************************************************-->                  
+              <div class="box box-widget " ng-model="post" >
+                <div class='box-header' ng-class="post.type" >
+                  <div class='user-block'>
+                    <img class='img-circle' ng-src="data:image/*;base64,{{currentUser.profile_picture}}" alt='user image'>
+                    <span class='username'><a>{{currentUser.first_name}} {{currentUser.last_name}}</a></span>
+                     <span style="color: #A3C2C2; padding-right:2%" class="pull-right" ng-show="showLocation"> <span class="fa fa-map-marker" style="color: #FFCC00;" ng-show="showLocation"> </span> {{post.address}} </span>
+                  </div><!-- /.user-block -->
+                </div><!-- /.box-header -->
+                <div class="box body">
+                  <form  enctype="multipart/form-data" role="form" ng-submit="post()">
+                    <!-- .img-push is used to add margin to elements next to floating images -->
+                    <div class="img-push">
+                      <textarea ng-model="post.message" type="text" id="text_area_in_post" class="form-control input-sm" placeholder="Press enter to post here"></textarea>
+                    </div>
+                    <div class="img-push" style="padding-left:2%; padding-right:2%">
+                      <!-- Googple PLaces Directive -->
+                      <p ng-show="error" class="error" hidden  style="margin-top: 10px; margin-left: 5px;">
+                        You can not add empty message
+                      </p>
+                      <img  id="previewImg" class="img-responsive" ng-show="showImage"/>
+                      <hr style="margin-bottom: 20px; margin-top: 20px;">
+                       <input ng-model="post.address" class="form-control" ng-show="toAddLocation" googleplace 
+                            style="width:40%"/>                    
+                      <img id="previewImg" class="img-responsive"
+                           style="margin-bottom: 10px" ng-show="showImage"/>
+                      </div>
+                      <hr ng-if="showHR" style="margin-bottom: 7px;">
+                      <div class="img-push">
+                        <div class="pull-right" style="padding-right:2%">
+                         <button  type="button" style="margin-right:4px;padding-right:4%"
+                                   class="button button-action button-circle button-longshadow pull-right" ng-click="post()">
+                                    <i class="fa fa-paw" ></i>
+                          </button>
+                        </div>
+
+
+                          <ul class="list-inline"  style="padding-bottom:2%; padding-top:2%">
+                            <li style="cursor: pointer; margin-left:13px;">
+                              <a id="buttons_post1"><span class="fa fa-map-marker" ng-click="addLocation()"></span></a>
+                            </li>
+                            <li style="cursor: pointer;padding:0px;margin-left:10px;margin-bottom:0px">
+                              <div class="file-upload pull-right" style="margin:0px;padding:0px">
+                                <a class="fa fa-camera"></a>
+                                <input type="file" class="file-input" style="height:50%" file-model="post.post_picture" accept="image/*">
+                              </div>
+                            </li>
+                            <li style="cursor: pointer; margin-left:5px;">
+                            <div class="dropdown">
+                              <a class=" dropdown-toggle fa fa-paw" id="menu1" data-toggle="dropdown">
+                                <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li style="cursor: pointer" role="presentation" ng-click="adopt()"><a ng-model="post.type" role="menuitem" tabindex="-1">I am giving a pet (adopting)</a></li>
+                              <li style="cursor: pointer" role="presentation" ng-click="sell()"><a ng-model="post.type" role="menuitem" tabindex="-1"> I am selling a pet</a></li>
+                              <li style="cursor: pointer" role="presentation" ng-click="lost()"><a ng-model="post.type" role="menuitem" tabindex="-1" >I have lost my pet</a></li>
+                              <li style="cursor: pointer" role="presentation" ng-click="found()"><a ng-model="post.type" role="menuitem" tabindex="-1" >I have found someone's pet</a></li>
+                              <li style="cursor: pointer" role="presentation" ng-click="injured()"><a ng-model="post.type" role="menuitem" tabindex="-1" >My pet is injured</a></li>
+                            </ul>
+
+                            <span ng-class="post.type"  class="letters" >
+                              &nbsp; &nbsp; {{post.type}}
+                            </span>
+                          </div>
+                          </li>
+                        </ul>
+                      </div>
+                  </form>
+                </div>
+                </div>
+
+<!-- ***************************************** [OLD POSTS] ********************************************************-->        
+
+              <div class="box box-widget" ng-repeat="post in posts">
+               
+               <!-- BOJA BORDER SPORED TIP -->
+                <div class='box-header with-border'>
+                  <div class='user-block'>
+                    <img ng-src="data:image/*;base64,{{post.user.profile_picture}}" class="img-circle img-responsive"
+                      alt="user image" width="80" height="80">
+                    <!-- <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='user image'> -->
+                    <span class='username'><a>{{post.user.first_name}} {{post.user.last_name}} </a></span>
+                    <span class='description pull-right'> <i class="fa fa-map-marker" style="color: #FFCC00"></i> {{post.address}} </span>
+                    <span class='description'> {{convertTimestampToDate(post.created_at)}} - {{convertTimestampToTime(post.created_at)}} </span>
+
+                  </div><!-- /.user-block -->
+                </div><!-- /.box-header -->
+
+                <div class='box-body'>
+                  <img ng-if="post.post_picture" class="img-responsive pad center-block" ng-src="data:image/*;base64,{{post.post_picture}}"  alt="Photo">
+                  <p>{{post.message}}</p>
+                  <i id="post-{{$index}}" style="background: transparent; border: none; color: #e74c3c; font-size: 32px; padding: 0px; margin-left: 20px; cursor: pointer;  padding-right:2%" ng-class='getLikeClass(post.liked)' ng-click="heartIt(post.id, $index, post.liked, post.nLikes)"></i> <div class="pull-right">{{post.nLikes}}</div>
+                 
+                </div><!-- /.box-body -->
+
+
+                <!-- KOMENTARI -->
+                <div class='box-footer'>
+                  <div class="box box-comments box-widget">
+                    <div class="box-header">
+                      <h4>Comments</h4>
+
+                      <!-- broj komentari -->
+                      <div class="box-tools pull-right">
+                        <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span>
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      </div>
+
+                    </div>
+
+                    <div class="box-body" ng-repeat="comment in post.comments">
+                      <div class="box-comment " ng-if="comment">
+
+                        <!-- User image -->
+                        <img class='img-circle img-sm img-responsive' ng-src="data:image/*;base64,{{comment.user.profile_picture}}" alt='user image' width="80" height="80">
+                        <div class='comment-text'>
+                          <span class="username" >
+                            {{comment.user.first_name}} {{comment.user.last_name}}
+                              <span class='text-muted pull-right'>{{convertTimestampToDate(comment.created_at)}} - {{convertTimestampToTime(comment.created_at)}} </span>
+                          </span><!-- /.username -->
+                            {{comment.message}}
+                        </div>
+                      </div>
+                      <!-- /.comment-text -->
+                
+                    </div><!-- /.box-footer -->
+                  </div>
+                </div>
+
+                <div class="box-footer">
+                  <form role="form" ng-submit="comment(post.id)" ng-model="comment" class="user-block">
+                    <div class="col-lg-1">
+                    <img ng-src="data:image/*;base64,{{currentUser.profile_picture}}" class="img-circle img-responsive" alt="alt text" width="80" height="80">
+                  </div>
+                    <!-- .img-push is used to add margin to elements next to floating images -->
+              
+                    <div class="img-push col-lg-11" >
+                      <input ng-model="comment.message" type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                    </div>
+               
+                  </form>
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->
+            </div>
+
+<!-- ***************************************** [OLD POSTS] ********************************************************-->        
+
+
+            <div class="col-sm -12 col-md-3">
+              <div class="box box-widget">
+                <div class="box-header">
+                 Popular Article
+                </div>
+                <div class='box-body'>
+                  <c3-simple ng-model="chart.data" id="chart" config="chart"></c3-simple>
+                </div>
+              </div>
+              <div class="box box-widget">
+                <div class="box-header">
+                  Nearby Places
+                </div>
+                <div class='box-body'>
+                  <div ng-init="current()">
+                    <div class="row" style="margin-left: 25px; margin-bottom: 3px;">
+                      <div class="col-md-2"
+                           style="padding-right: 0px; padding-left: 0px;">
+                        <img alt="" src="dist/img/nearbyimages/vet.jpg"
+                             class="img-responsive" width="50" height="50">
+                      </div>
+                      <div class="col-md-10">
+                        <p>
+                          <br> <a style="color: #1ab394;cursor:pointer"
+                                  ng-click="retrivePharmacies()">Find nearby pharmacies</a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-left: 25px; margin-bottom: 3px;">
+                      <div class="col-md-2"
+                           style="padding-right: 0px; padding-left: 0px;">
+                        <img alt="" src="dist/img/nearbyimages/park.jpg"
+                             class="img-responsive" width="50" height="50">
+                      </div>
+                      <div class="col-md-10">
+                        <p>
+                          <br> <a style="color: #1ab394;cursor:pointer" ng-click="retriveParks()">Find nearby
+                          parks </a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-left: 25px; margin-bottom: 3px;">
+                      <div class="col-md-2"
+                           style="padding-right: 0px; padding-left: 0px;">
+                        <img alt="" src="dist/img/nearbyimages/gogshop.jpg"
+                             class="img-responsive" width="50" height="50">
+                      </div>
+                      <div class="col-md-10">
+                        <p>
+                          <br> <a ng-click="retriveVet()" style="cursor:pointer;color: #1ab394;">Find nearby
+                          Veterinary Clinics </a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-left: 25px; margin-bottom: 3px;">
+                      <div class="col-md-2"
+                           style="padding-right: 0px; padding-left: 0px;">
+                        <img alt="" src="dist/img/nearbyimages/vetshops.jpg"
+                             class="img-responsive" width="50" height="50">
+                      </div>
+                      <div class="col-md-10">
+                        <br>
+                        <a style="color: #1ab394;cursor:pointer" ng-click="retrivePetStores()">Find
+                          nearby Pet-Shops</a>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+                  </div>
+                </div>
+                </div><!-- /.col -->
+          </section>
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Love the abandoned, rescue the lost and save the injured.
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; PetCare 2016.</strong> All rights reserved.
+      </footer>
+
+
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+         Both of these plugins are recommended to enhance the
+         user experience. Slimscroll is required when using the
+         fixed layout. -->
+  </div>
+   </div>

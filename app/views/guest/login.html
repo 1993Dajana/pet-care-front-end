@@ -1,19 +1,47 @@
-<html>
-   <body ng-controller="AuthController">
-      <form ng-model="user" id="form"  method="POST" role="form" style="display: block;" ng-submit="login()" novalidate>
-         <div class="form-group">
-            <input type="text" ng-model="user.email" id="username" tabindex="1" class="form-control" placeholder="Username">
-         </div>
-         <div class="form-group">
-            <input type="password" ng-model="user.password" id="password" tabindex="2" class="form-control" placeholder="Password">
-         </div>
-         <div class="form-group">
-            <div class="row">
-               <div class="col-sm-6 col-sm-offset-3">
-                  <input type="submit"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In"/>
-               </div>
+<!-- za login -->
+<html> 
+   <head>
+    <!-- <link href="dist/css/animate.min.css" rel="stylesheet"> -->
+<!--     <link href="styles/green.css" rel="stylesheet">
+    <link href="styles/custom.css" rel="stylesheet"> -->
+    </head>
+    <body>
+    <!-- za login -->
+    <div class="container">
+        <div id="wrapper">
+            <div id="login" class="animate form" ng-controller="AuthController"  >
+                <section class="login_content">
+                    <form method="POST" role="form" ng-submit="login()" ng-model="user"  novalidate>
+                        <h1>Login Form</h1>
+                        <div>
+                            <input type="text" ng-model="user.email" class="form-control" placeholder="Username" required/>
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
+                        </div>
+                        <div>
+                            <input type="submit"  id="login-submit" class="btn btn-login" value="Log In"/>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+
+                            <p class="change_link"> If you haven't registered yet,
+                                <a> create account </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Petcare | we care </h1>
+
+                                <p>©2016 All Rights Reserved. Skopje, Macedonia</p>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- form -->
+                </section>
+                <!-- content -->
             </div>
-         </div>
-      </form>
-   </body>
-</html>
+        </div>
+    </div>         
+    </body>
+    </html>

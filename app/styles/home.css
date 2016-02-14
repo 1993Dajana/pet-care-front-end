@@ -1,0 +1,75 @@
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px; }
+
+.file-upload input.file-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+#text_area_in_post{
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size:16px;
+}
+
+.injured {
+    border-top: 5px solid #f0776c;
+    opacity: 0.7;
+}
+
+.lost {
+    border-top: 5px solid #c49cde;
+    opacity: 0.7;
+}
+
+.adopt {
+    border-top: 5px solid #62c2e4;
+    opacity: 0.7;
+}
+
+.found {
+    border-top: 5px solid #c4e17f;
+    opacity: 0.7;
+}
+
+.sell {
+    border-top: 5px solid #fecf71;
+    opacity: 0.7;
+}
+
+.letters.injured{
+    border-top:0px;
+    color: #f0776c;
+}
+
+.letters.lost{
+    border-top:0px;
+    color: #c49cde;
+}
+
+.letters.adopt{
+    border-top:0px;
+    color:#62c2e4;
+}
+
+.letters.found{
+    border-top:0px;
+    color:#c4e17f;
+}
+
+.letters.sell{
+    border-top:0px;
+    color:#fecf71;
+}

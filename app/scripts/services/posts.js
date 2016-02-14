@@ -32,7 +32,7 @@ petcareApp
             $scope.comment.message = ($scope.comment.message.getBytes("iso-8859-1"), "UTF-8");*/
             var formData = new FormData();
             for (var key in data){
-              console.log('post data - key:' + key + ' data:' + data[key]);
+              console.log('post data - key: ' + key + ' data: ' + data[key]);
               formData.append(key, data[key]); 
             }
             // console.log('comment message is: ' +  post.message);

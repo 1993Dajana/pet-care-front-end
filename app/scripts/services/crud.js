@@ -4,7 +4,7 @@ petcareApp
 	function($resource, BASE_URL){
 
 
-		return $resource(BASE_URL + ':service/:action/:id', {}, {
+		return $resource(BASE_URL + ':service/:action/:id', {id:'@id'}, {
 			
 			getAuthUser: {
 				method: 'GET',
@@ -42,19 +42,34 @@ petcareApp
 				params:{
 					service:'post',
 					action:'comment'
-				}
+				},
+				headers: {
+            		'Content-Type' : undefined
+          		}
 			},
-			getReplies:{
+			// NE GO KORISTIME, SO SEKOJ POST ZEMAME KOMENTARI
+			getComments:{
 				method:'GET',
 				params:{
 					service:'post',
-					action:'comments'
+					action:'comments',
+					id:'@id'
 				}
 			},
-			nearBy:{
+			like:{
 				method:'GET',
 				params:{
-					service:'nearby'
+					service:'post',
+					action: 'like',
+					id:'@id'
+				}
+			},
+			unlike:{
+				method:'GET',
+				params:{
+					service:'post',
+					action: 'unlike',
+					id:'@id'
 				}
 			}
 			

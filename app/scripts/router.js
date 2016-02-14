@@ -3,7 +3,9 @@ petcareApp
 .config(function ($routeProvider, $httpProvider, $compileProvider,$stateProvider, $urlRouterProvider,
 				  $authProvider, $injector, $provide) {
             delete $httpProvider.defaults.headers.common['X-Requested-With'];
-            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|skype):/);
+            // $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|skype):/);
+$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|ftp|blob|skype|mailto):|data:image\//);
+
 
 
              function redirectWhenLoggedOut($q, $injector) {
@@ -57,6 +59,7 @@ petcareApp
 
             
             
+            
             $stateProvider
             	.state('auth',{
             		url: '/welcome',
@@ -65,27 +68,48 @@ petcareApp
                 .state('auth.login', {
                     url: '^/login',
                     templateUrl: '../views/guest/login.html',
-                    controller: 'AuthController as auth'
+                    controller: 'AuthController as auth',
+                     css:  ['bower_components/bootstrap/dist/css/bootstrap.css',
+                           'bower_components/font-awesome/css/font-awesome.css',
+                           'dist/css/animate.min.css',
+                           'styles/custom.css',
+                           'styles/green.css']
                 })
                 .state('auth.register', {
                     url: '^/register',
                     templateUrl: '../views/guest/register.html',
-                    controller: 'RegisterController'
+                    controller: 'RegisterController',
+                    css:  ['bower_components/bootstrap/dist/css/bootstrap.css',
+                           'bower_components/font-awesome/css/font-awesome.css',
+                           'dist/css/animate.min.css',
+                           'styles/custom.css',
+                           'styles/green.css']
                 })
                 .state('users', {
-                    url: '/users',
-                    templateUrl: '../views/users/userView.html',
-                    controller: 'UserController as user'
-                })
-                .state('users.home', {
-                    url: '^/home',
+                    url: '/home',
                     templateUrl: '../views/users/home.html',
-                    controller: 'HomeController as home'
+                    css: ['bootstrap/css/bootstrap.min.css',
+                          'bower_components/font-awesome/css/font-awesome.css',
+                          'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+                          'dist/css/AdminLTE.css',
+                          'dist/css/skins/_all-skins.min.css',
+                          'dist/css/AdminLTE.min.css',
+                          'styles/home.css',
+                          'dist/css/buttonsUnicorn.css']
+                })
+                .state('users.profile',{
+                  url:'^/profile',
+                  templateUrl: '../views/users/profile.html',
+                     css: ['bootstrap/css/bootstrap.min.css',
+                          'bower_components/font-awesome/css/font-awesome.css',
+                          'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+                          'dist/css/AdminLTE.css',
+                          'dist/css/skins/_all-skins.min.css',
+                          'styles/home.css',
+                          'dist/css/AdminLTE.min.css']
                 });
 
-
-            $urlRouterProvider.otherwise('/auth');
-        
+            // $urlRouterProvider.otherwise('/auth'); // SEGA ZA SEGA FIX DODEKA SREDUVAME DIZAJN
   })
 .run(['$rootScope', '$http', '$state', function($rootScope, $http, $state){
 
